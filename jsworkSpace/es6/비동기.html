@@ -1,0 +1,47 @@
+<script>
+    function ajax(url){
+
+        console.log(url+'호출');
+        //내장함수 set
+        var result ='';
+        //클라이언트 요청 -> 서버에서 처리한 결과 응답
+        setTimeout(()=>{
+            //응답받은 결과를 result에 저장 
+            result = '응답결과';
+        },1000);           //비동기 메서드 1초잇다가 실행됨 
+        return result;
+    };
+
+    console.log('시작');
+    var result = ajax("htt://naver.com"); //비동기
+    console.log(result);
+    console.log('끝');
+
+    //ES8 이후 
+    //promise 
+    function ajax2(callback){
+        return new Promise(function (resolve,reject){
+            setTimeout(()=>{
+                resolve('응답결과'); //resolve콜백함수에 파라미터 넣은 것
+            },1000);
+        })
+    }
+    console.log('시작');
+    ajax2().then(result => { //resolve 정의 
+        console.log(result);
+    });
+    console.log("끝");
+
+    //비동기를 동기적으로 처리 
+    //함수앞에 async, 함숭ㄴ에 비동기 함수 호출 시 await
+    async function call(){
+        var promise = await ajax2(result => {
+            return result;
+        });
+
+        console.log('promise'+promise);
+    }
+    call();
+
+    //어렵네 ㅋㅋ..
+</script>

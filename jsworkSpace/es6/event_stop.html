@@ -1,0 +1,33 @@
+<script>
+    //이벤트 제거
+
+    //기본이벤트
+    
+    window.onload = () =>{
+        document.querySelector("#naver").onclick= function(e){
+
+         alert('네이버');
+         e.preventDefault();
+        };
+        
+
+        //이벤트 전파 제거 
+        document.querySelector("#target").onclick= function(e){
+    
+         alert('이벤트 전파 제거');
+         e.stopPropagation();   
+         //event에서는 this 사용하지말자
+            
+        };
+    }; 
+</script>
+
+<a href="http://www.naver.com" id="naver">네이버</a>
+<div onclick="alert(1);">
+    <div onclick="alert(2);">
+        예
+        <div onclick="alert(3);" id="target">
+                이벤트 전파 영역중첩때문에 발생
+        </div>
+    </div>
+</div>

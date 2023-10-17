@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        #box1{
+            /*position: static; 기본값*/
+            position: absolute;
+            background-color: red;
+            z-index: 1;
+        }
+        #box2{
+            position: absolute;
+            background-color: orange;
+            top: -10px;
+            left: 10px;
+            z-index: 0;
+        }
+        #box3{
+            position: absolute;
+            background-color: yellow;
+            top:-20px;
+            left:20px;
+            z-index: 10
+        }
+        #box4{
+            background-color: blue;
+            position: fixed; /*부모한테 고정 -> 스크롤 내려도 계속보임*/
+            top: 0px;
+            left: 0px;
+        }
+        #container{
+            position: relative;
+            width: 500px;
+            height: 2000px;
+            border: 1px solid #000;
+            left: 100px;
+            top: 100px
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>
+    </div>
+</body>
+</html>

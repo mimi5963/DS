@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<style>
+
+    body{
+        font-family: 'Bagel Fat One', cursive;
+    }
+
+/* 전체 선택자 (초기화 용도) 
+*{
+    color: red;
+} 
+*/
+    /*태그 선택자*/
+    h1{
+        color: blue;
+    }
+    /*아이디 선택자*/
+    #title{
+        color: blueviolet;
+    }
+    /*클래스 선택자*/
+    .content{
+        color: orange;
+    }
+    .bg_yellow{
+        background-color: yellow;
+    }
+    /*속성 선택자*/
+    input[type="text"]{
+
+        background-color: red;
+
+    }
+    input[type="password"]{
+        background-color: blue;
+    }
+
+    /*자식*/
+    #parent > div{
+        color: red;
+    }
+    /*자손 (모든 자식 계층관계)*/
+    #parent div{
+        color: brown;
+    }
+    /*다중 선택자 , */
+    h1, p, #parent > div{
+        color: chartreuse;
+    }
+    /*~이면서 여러조건 띄어쓰기나 콤마 > 없이 이어쓰기*/
+    h1#title{
+        background-color: aqua;
+    }
+
+    /*형제 선택자 
+    선택자1 + 선택자2 : 선택자1 바로 뒤에 있는 선택자2
+    선택자1 ~ 선택자2 : 선택자1 뒤에 있는 전부 
+    */
+    h1 + h2 {
+        color: chocolate;
+    }
+    h1 ~ h2 {
+        background-color: cornflowerblue;
+    }
+
+    /*가상 클래스 
+    앞에 :
+    링크와 관련된 가상 클래스
+    */
+    a:link{
+        color: black;
+        text-decoration: none;
+    }
+    a:visited{
+        color: gray;
+    }
+    a:hover{
+        color: red;
+    }
+    a:active{
+        color:aqua
+    }
+    a:focus{
+        background-color: orange;
+    }
+
+    /*위치와 관련된 가상 클래스*/
+    li:first-child{
+        color: red;
+    }
+    li:last-child{
+        color: brown
+    }
+    li:nth-child(2){
+        color: cadetblue;
+    }
+    /*first-of-type, last-of-type 이런 것도 있다함*/
+    
+    /*부정 선택자 :not()*/
+    ul li:not(.four){
+        color: blueviolet;
+    }
+</style>
+
+
+
+</head>
+<body>
+    <h1>제목</h1>
+    <h1 id="title">제목2</h1>
+    <!-- 웹표준 아이디는 중복x 물론 작동 안하는건 아님-->
+    <h1 id="title">제목3</h1>
+    <!-- id는 유일식별자, 클래스는 여러개 가능 여러 태그를 묶어서 css,js적용하고자 한다면, 클래스사용하자-->
+    <p class="content">내용</p>
+    <div class="content bg_yellow">첨부파일</div>
+    <span class="content">작성일</span><br>
+    
+    <input type="text"><br>
+    <input type="password"> 
+
+    <div id="parent">
+        부모
+        <div>자식 div</div>
+        <span>
+            아
+            <div>span 자식</div>
+            <div>span 자식</div>
+        </span>
+    </div>
+
+    <h1>하위~</h1>
+    <h2>헬로</h2>
+    <h2>안녕</h2>
+    <hr>
+
+    <a href="http://naver.com">네이바</a>
+    <hr>
+
+    <ul>
+        <li>첫째</li>
+        <li>둘쨰</li>
+        <li>셋째</li>
+        <li class="four">넷쨰</li>
+        <li>다섯쨰</li>
+    </ul>
+</body>
+</html>

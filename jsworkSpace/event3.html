@@ -1,0 +1,42 @@
+<script>
+    window.onload = () => { //페이지 로드 이벤트
+
+        //이벤트 거는 3가지 방법 
+
+        // document.querySelector("#btn").onclick= () =>{
+        //     document.querySelector("#text").style.color='red';
+        // };
+        // document.querySelector("#btn").onclick = () => {
+        //     document.querySelector("#text").style.backgroundColor='red';
+        // }
+            //덮어쓰기됨 onclick에는 하나만 넣을 수 있음 -> 이벤트에 값 할당
+
+        document.querySelector("#btn").addEventListener('click',()=>{
+            document.querySelector("#text").style.color='red';
+        });
+        document.querySelector("#btn").addEventListener('click',()=>{
+            document.querySelector("#text").style.backgroundColor='yellow';
+        });
+        document.querySelector("#btn").addEventListener('mouseover',()=>{
+            document.querySelector("#text").style.backgroundColor='yellow';
+        });
+        //이벤트가 더해짐 
+
+        //function 추가하기 
+    //     window.onload = function(){ //페이지 로드되고 실행되도록 걸기
+    // document.querySelector('input[type="button"]').onclick=changeWordColor;
+    // function changeWordColor(){
+    //    var all= document.querySelectorAll('p');
+    //    var initialColor = 'black';
+    //    for(let i =0; i<all.length;i++){
+    //     if(arr[i].style.color == initialColor)
+    //      all[i].style.color="#f00";
+    //     else{
+    //         all[i].style.color=initialColor;
+    //     }
+    //    }
+    // }
+    };
+</script>
+<input type="button"  id='btn' value="글자색 바꾸기">
+<p id="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, illo iste suscipit, quidem praesentium placeat sint dolores quasi quibusdam inventore perspiciatis nam in cum dolorem porro ea. Adipisci, quia a!</p>

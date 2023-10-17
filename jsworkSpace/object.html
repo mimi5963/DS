@@ -1,0 +1,30 @@
+<!-- <script>
+
+var now = new Date();
+var end = new Date(2024,2,29);
+var interval = end.getTime() - now.getTime(); //Time은 1000분의 1초로나옴
+document.write(interval/(1000*60*60));
+interval = Math.floor(interval/(1000*60*60*24)); //밀리초를 일수로 계산
+document.write(interval);
+
+document.querySelector("#result").innerText = interval;
+</script> -->
+<script>
+    Math.floor.random()*10+1;
+
+</script>
+<div id="result"></div>
+
+<script>
+
+    var now = new Date();
+    var end = new Date(2024,2,29);
+    var interval = end.getTime() - now.getTime(); //Time은 1000분의 1초로나옴
+    //document.write(interval/(1000*60*60));
+    interval = Math.floor(interval/(1000*60*60*24)); //밀리초를 일수로 계산
+    //document.write(interval);
+    
+    document.querySelector("#result").innerText = '<b>종강일</b>'+interval;
+
+    //innerText 그냥 안에 TEXT넣는것 InnerHTML은 HTML형식으로 쓰면 그렇게 넣어줌
+    </script>

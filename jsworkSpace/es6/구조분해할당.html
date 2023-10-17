@@ -1,0 +1,22 @@
+<script>
+
+var arr=[1,2];
+var a0 = arr[0];
+var a1 =arr[1];
+
+var[b0,b1] = arr;
+console.log(b0,b1);
+//변수 초기화를 배열을 사용 (배열의 값 꺼낼때 유용)
+
+//객체 
+var obj = {a:1, b:2};
+var a = obj['a'];
+var b = obj['b'];
+
+
+//객체구조분해시 키의 이름으로 분해(같은 키 이름으로 저장) 
+var{a,b} = obj;
+console.log(a,b);
+var{x,y} = obj;
+console.log(x,y); //undefined
+</script>

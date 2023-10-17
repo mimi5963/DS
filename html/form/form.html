@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>회원 가입</h1>
+    <form method=""get   action="insert.jsp" enctype="multipart/form-data">
+
+        <table border="1">
+            <tr>
+                <th>나이</th>
+                <td>
+                    <input type="number" name="age">
+                </td>
+            </tr>
+            <tr>
+                <th>아이디</th>
+                <td>
+                    <input type="text" name="id" size="10" maxlength="10" disabled>
+                </td>
+            </tr>
+            <tr>
+                <th>비번</th>
+                <td>
+                    <input type="password" name="pass" placeholder="비번입력해요" autofocus required>
+                </td>
+            </tr>
+            <tr>
+                <th>취미</th>
+                <td>
+                    <input type="checkbox" name="hobby" id="hobby1" value="1"><label for="hobby1">영화</label>
+                    <input type="checkbox" name="hobby" id="hobby2" value="2"> <label for="hobby2">독서 </label>
+                    <input type="checkbox" name="hobby" id="hobby3" value="3"> <label for="hobby3">낚시</label>
+                </td>
+            </tr>
+            <tr>
+                <th>성별</th>
+                <td>
+                    <input type="radio" value="0"> 남자
+                    <input type="radio" value="1"> 여자
+                </td>
+
+            </tr>
+            <tr>
+                <th>프로필사진</th>
+                <td>
+                    <input type="file" name="profile">
+                </td>
+            </tr>
+            <tr>
+                <th>자기소개</th>
+                <td>
+                    <textarea name="introduce">
+                        
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>거주지</th>
+                <td>
+                    <select name="city" >
+                        <option value="1">서울</option>
+                        <option value="2" selected>경기</option>
+                        <option value="3">인천</option>
+                        <option value="4">서산</option>
+                    </select>
+                </td>
+            </tr>
+            
+            
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="회원가입">
+                    <input type="reset" value="초기화">
+                    <input type="image" src="/img/고냥이.jpg" width="30%">
+                    <input type="button" value="버튼">
+                    <button>버튼</button>
+                </td>
+            </tr>
+            
+        </table>
+
+
+    </form>
+</body>
+</html>

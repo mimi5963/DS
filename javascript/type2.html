@@ -1,0 +1,50 @@
+<script>
+var a =1;
+var b ='2';
+
+var c = a+b;
+console.log(typeof(c)); // type String나온다.
+console.log(c);
+
+a = '1';
+b = true;
+c = a+b;
+console.log(c);
+console.log(typeof(c)); // 문자열
+
+a= '2';
+b =1;
+c = a-b;
+console.log(c);
+console.log(typeof(c)); // 숫자로 변환되어 계산함 (빼기
+
+//강제(명시적)형변환
+
+//숫자 -> 문자 
+var a =1;
+var b = String(a);
+
+//***문자 -> 숫자
+var a ='1';
+var b = Number(a);
+
+//parsInt와 Number의 차이점 Number는 값이 없으면 0처리 ->
+var c = parseInt(a);
+
+//이벤트 적용 (화면 렌더링 전에 head에 이벤트가 먼저 걸려서 작동 안할 수 있음 )
+//따라서 화면 랜더링 다음에 이벤트가 걸리도록 해보자
+
+window.onload = function(){ //문서가 로드가 완료되면 실행
+    document.querySelector("#btn").onclick = function(){ 
+        var items = document.querySelectorAll('.item'); //해당 클래스 배열로 리턴
+        for(var i = 0 ; i<items.length;i++){ 
+            items[i].style.color ='red';
+        }
+    }
+}
+</script>
+
+<div class = 'item'>하나</div>
+<div class = 'item'>둘</div>
+<div class = 'item'>셋</div>
+<input type="button" id="btn" value="색상 변경">

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>평가.html</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .wrap{
+            width: 1200px;
+            margin: 0 auto;
+            text-align: center; /*추후에 뺼 수 있다.*/
+        }
+        .header{
+            text-align: center;
+            background-color: #273443;
+            height: 100px;
+            line-height: 100px;
+            color: #ffffffff;
+        }
+        .content{
+            text-align: center;
+            background-color: #a5c2a7;
+            height: 500px;
+            line-height: 500px;
+            float: left;
+            width: 70%;
+            
+        }
+        .footer{
+            text-align: center;
+            background-color: #d1c3a7;
+            height: 80px;
+            line-height: 80px;
+            clear: both;
+            
+            
+        }
+        .menu > ul > li{
+            list-style: none;
+            border: 1px solid #000;
+            float: left;
+            width: 20%;
+            height: 40px;
+            line-height: 40px;
+            background-color: #ffffffff;
+            letter-spacing: -0.01em;
+        }
+        .menu > ul {
+            margin: 0px;
+            padding: 0px;
+        }
+        .menu{
+            height: 40px;
+        }
+        .container > .lcontents{
+            height: 500px;
+            width: 30%;
+            text-align: center;
+            line-height: 500px;
+            background-color: #f5cfa8;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    
+<div class = "wrap">
+    <div class ="header">HEADER</div>
+    <div class = "menu">
+        <ul>
+            <li>MENU1</li>
+            <li>MENU2</li>
+            <li>MENU3</li>
+            <li>MENU4</li>
+            <li>MENU5</li>
+        </ul>
+    </div>
+    <div class="container">
+    <div class="lcontents">LCONTENTS</div>
+    <div class ="content">CONTENTS</div>
+    </div>
+    <div class ="footer">FOOTER</div>
+</div>
+
+</body>
+</html>

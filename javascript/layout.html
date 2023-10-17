@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .warp{
+            width: 1000px;
+            margin: 0px auto;
+        }
+        .header{
+            text-align: center;
+            border:1px solid #000;
+            padding: 40px 0px;
+            background-color: gray;
+        }
+        .menus{
+            width: 100%;
+            height: 40px;
+        }
+        .menus > .menuU{
+            margin: 0px;
+            padding: 0px;
+        }
+        .menus > .menuU > .menu{
+            list-style: none;
+            height: 40px;
+            width: 25%;
+            text-align: center;
+            border: 1px solid #000;
+            background-color: grey;
+            float: left;
+            line-height: 40px;
+            
+        }
+        .content{
+            text-align: center;
+            border: 1px solid #000;
+            padding: 100px 0px;
+            background-color: gray;
+            width: 70%;
+            float: left;
+        }
+        .footer{
+            text-align: center;
+            border: 1px solid #000;
+            padding: 30px 0px;
+            background-color: gray;
+            clear: both;
+        }
+        
+        .container > .submenu{
+            text-align: center;
+            background-color: gray;
+            float: left;
+            border: 1px solid #000;
+            width: 30%;
+            padding: 100px 0px;
+        }
+        .menus > .menuU > li:hover{
+            background-color: white;
+            cursor: pointer;
+        }
+        @media screen and (max-width: 780px) {
+            .container > .submenu{
+                width: 100%;
+                clear: both;
+            }
+            .container > .content{
+                width: 100%;
+                clear: both;
+            }
+            .menus > .menuU > .menu{
+                clear: both;
+                width: 100%;
+            }
+            .menus > .menuU{
+                width: 100%;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="warp">
+        <div class="header">
+            HEADER
+            <img src="../">
+        </div>
+        <div class ="menus">
+            <ul class="menuU">
+                <li class="menu">menu1</li>
+                <li class="menu">menu2</li>
+                <li class="menu">menu3</li>
+                <li class="menu">menu4</li>
+            </ul>
+        </div>
+        <div class="container">
+        <div class="submenu">SOBMENU</div>
+        <div class="content">CONTENT</div>
+        </div>
+        <div class="footer">FOOTER</div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+<script>
+    window.onload = () => {
+        document.querySelector("#btn").onclick = () =>{
+            // var val =document.querySelector("#cnt").innerHTML;
+            // document.querySelector('#cnt').innerHTML++;  //이게 왜?????? 
+            // alert(typeof(val));
+
+            var cnt = document.querySelector("#cnt");
+            cnt.innerHTML++;
+        };
+        
+
+        document.querySelector('#popup').addEventListener("click", () => {
+            //window.open(경로,이름,옵션)
+            window.open('event3.html','pop','width=300, height=300');
+            
+        })
+    }
+</script>
+<h1>버튼 클릭횟수 : <span id="cnt">0</span></h1>
+<button id="btn">버튼</button>
+<button  id="popup">팝업</button>

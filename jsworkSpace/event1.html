@@ -1,0 +1,64 @@
+<script>
+    function a(){
+        alert('버튼1 클릭'); 
+        alert('실행문 두개'); 
+        alert('자바스크립트 코드 실행시켜주는 것');
+    }
+    function newColor(color){
+        var val = document.querySelectorAll('.target');
+        for(let i =0 ; i<val.length ;i++){
+            val[i].style.backgroundColor =color;
+        }
+        
+        document.querySelectorAll('.target').forEach(function(e){
+            e.style.backgroundColor=color;
+        })
+    }
+    function hideDiv(){
+        var val = document.querySelectorAll('.target');
+        
+        for(let i=0; i<val.length ;i++){
+            if(val[i].style.display == 'none')
+                val[i].style.display='block';
+            else 
+                val[i].style.display='none';
+        }
+    }
+
+
+   
+    
+</script>
+<a href="#;" onclick="a()">여기</a> <!--#넣은 이유는 경로를 안넣는다는 것 실행후에 맨 위로 올라감 안쓰는게 좋다, #엥커기능임-->
+<!--#!하면 실행 후에 맨위로 안올라감-->
+
+<a href="javascript:alert('클릭2')">여기2</a>
+<!--a태그는 href에다가 js코딩 가능-->
+
+<style>
+    div.target {
+        
+        border: 1px solid #000;
+        width: 100px;
+        height: 100px;
+    }
+
+</style>
+<input type="button" value="Green" onclick="newColor('green')">
+<input type="button" value="Orange" onclick="newColor('orange')">
+<input type="button" value="Purple" onclick="newColor('purple')">
+<input type="button" onclick="hideDiv();" value="토글">
+
+
+<div class="container">
+<div class="target">
+    배경
+</div>
+<div class="target">
+    배경
+</div>
+<div class="target">
+    배경
+</div>
+
+</div>

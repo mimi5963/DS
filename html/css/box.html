@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .div1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            /*왼쪽으로 붙이는 옵션*/
+            float: left;
+        }
+        .outer{
+            /*박스 포함하는 애 박스안에 넣을 때 쉽게 계산하고싶어*/
+            width: 403.2px;
+        }
+        .cb{
+            box-sizing: content-box;
+            /*default 값*/
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            border : 10px solid #000;
+            background-color: red;
+        }
+        .bb{
+            box-sizing: border-box;
+            /*테두리까지 포함된 값 사이즈가 딱 내가 지정한 만큼 모든게 따악!*/
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            border : 10px solid #000;
+            background-color: orange;
+            border-radius: 100% 10px 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+
+<div class="outer">
+<div class="div1"></div>
+<div class="div1"></div>
+</div>
+
+<div class="cb"></div>
+<div class="bb"></div>
+</body>
+</html>

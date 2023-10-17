@@ -1,0 +1,22 @@
+
+
+<input type="button" value="글자색 바꾸기">
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae, mollitia perspiciatis vero assumenda deserunt perferendis fugiat! Porro deserunt hic maxime quisquam optio nisi tempore dolorum nihil vel. Culpa, voluptatibus harum!</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate porro reiciendis, repudiandae ullam pariatur beatae quisquam voluptatem necessitatibus aut eius nemo quos itaque fugiat quaerat ipsa nam sit aliquid facere.</p>
+
+<script>
+    window.onload = function(){ //페이지 로드되고 실행되도록 걸기
+    document.querySelector('input[type="button"]').onclick=changeWordColor;
+    function changeWordColor(){
+       var all= document.querySelectorAll('p');
+       var initialColor = 'black';
+       for(let i =0; i<all.length;i++){
+        if(arr[i].style.color == initialColor)
+         all[i].style.color="#f00";
+        else{
+            all[i].style.color=initialColor;
+        }
+       }
+    }
+};
+</script>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+<style>
+    .wrap{
+        font-family: 'Noto Sans KR', sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .wrap > #enrollmember > table{
+        border: 1px solid #000;
+        border-spacing: 0px;
+        
+    }
+    #enrollmember > table > tbody > tr > th,td{
+        border:1px solid #000;
+        height: 40px;
+       padding-left: 5px;
+       padding-right: 5px;
+    }
+    .buttons{
+        background-color: #1a73a1;
+        color: white;
+        border-style: none;
+        height: 25px;
+    }
+    #enrollmember > table > tbody >tr> td > .inputboxs{
+        size: 20px;
+    }
+    #enrollmember > table > tfoot{
+        text-align: center;
+    }
+    .wrap > h1 {
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+</style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>회원가입</h1>
+        <form id="enrollmember" action="insert.do" method="post">
+            <table>
+                <tr>
+                    <th>아이디</th>
+                    <td> <input class="inputboxs" type="text" id="id" name="id">
+                         <input class="buttons" type="button" id="idcheck" name="idcheck" value="중복확인">
+                    </td>
+                </tr>
+                <tr>
+                    <th>비밀번호</th>
+                    <td>
+                        <input class="inputboxs" type="password" id="pass" name="pass">
+                    </td>
+                </tr>
+                <tr>
+                    <th>비밀번호 확인</th>
+                    <td>
+                        <input class="inputboxs" type="password" id="passDoubleCheck" name="passDoubleCheck">
+                    </td>
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <td>
+                        <input class="inputboxs" type="text" id="name" name="name">
+                    </td>
+                </tr>
+                <tr>
+                    <th>연락처</th>
+                    <td>
+                        <select name="phoneNumberF" id="phoneNumberF">
+                            <option value="010">010</option>
+                            <option value="011">011</option>
+                        </select>
+                        <input type="text" size="4" maxlength="4" name="phFirst4" id="phoneFirst4"> -
+                        <input type="text" size="4" maxlength="4"name="phLast$" id="phoneLast4">
+                    </td>
+                </tr>
+                <tr>
+                    <th>성별</th>
+                    <td>
+                        <input type="radio" name="sex" value="1" checked>남자
+                        <input type="radio" name="sex" value="2" >여자
+                    </td>
+                </tr>
+                <tr>
+                    <th>약관동의</th>
+                    <td>
+                        <input type="checkbox" name="agree" id="agree"> 약관에 동의합니다.
+                    </td>
+                </tr>
+                <tfoot>
+                    <td colspan="2">
+                        <input class="buttons" type="submit"  value="가입">
+                        <input class="buttons" type="reset"   value="취소">
+                    </td>
+                </tfoot>
+                
+            </table>
+        </form>
+    </div>
+</body>
+</html>
