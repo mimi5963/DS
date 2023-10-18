@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <META name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/exer/reset/reset.css"/>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin:0;
+            padding:0;
+        }
+        a {
+            text-decoration: none;
+        }
+        .wrap {
+            width:100%;
+            margin : 0 auto;    /* 가운데 정렬 */
+        }
+        .header {
+            width: 1200px;
+            margin : 0 auto;
+            text-align: center;
+            padding:10px 0px;
+        }
+        .size{
+            position: relative;
+        }
+        .login{
+            position:absolute;
+            right:0;
+            top:0;
+        }
+        .menu {
+            width: 1200px;
+            margin : 0 auto;
+            height: 40px;
+        }
+        .menu > ul {
+            margin:0;
+            padding:0;
+        }
+        .menu > ul > li {
+            list-style: none;
+            border:1px solid #000000;
+            background-color:#ffffff;
+            color:#000000;
+            text-align: center;
+            float:left;
+            width:20%;
+            height:40px;
+            line-height:40px;
+        }
+        .menu > ul > li:hover {
+            background-color:#ffffff;
+        }
+        .container {
+            width: 1200px;
+            margin : 0 auto;
+            overflow: hidden;
+            height:auto;
+        }
+        
+        .container > .size{
+            width: 100%;
+            text-align: center;
+        }
+
+        .container > .size > .section{
+            width: 33.3333%;
+            float: left;
+            margin: 5px 0;
+        }
+
+        
+        .footer {
+            width: 100%;
+            background-color: #2d2b28;
+            color:gray;
+            clear :both;
+            padding:30px 0px;
+           
+        }
+        .footer > .size{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .footer > .size > .info > p {
+            line-height: 20px;
+        }
+        .footer > .size > .sns_area{
+            position:absolute;
+            top: 0;
+            right: 0;
+        }
+        .sns_area > a{
+            margin: 10px;
+        }
+        ul, li{
+            list-style-type: none;
+            position: relative;
+            
+        }
+        .depth2{
+            z-index: 10;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            background-color: #ffffff;            
+        }
+        .visual img{
+            display: block; /*이미지하단 살짝 붕뜬거 없애기*/
+        }
+        .visual{
+            height: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+        .swiper{
+            height: 500px;
+        }
+        .swiper-slide {
+            background-position: center;
+           background-size: cover; 
+            background-repeat: no-repeat;
+            /*d왜 backgorund인지는 > 아 메뉴 쭉 나오는거 떄문에..*/
+        }
+        #popup{
+            position: absolute;
+            z-index: 99999;        
+        }
+        #quickMenu{
+            position: absolute;
+            z-index: 999999;
+            top: 124px;
+            left: 1450px;
+        }
+        #goTop{
+            cursor: pointer;
+        }
+
+        .info {
+            width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .info > .content{
+            width: 50%;
+            padding: 10px;
+            float: left;
+        }
+        .info > .content > .board_area{
+            width: 100%;
+            border : 1px solid #999;
+            padding: 10px;        
+        }
+        .info > .content > .board_area > .board_title{
+            font-size: 25px;
+            line-height: 50px;
+            float: left;
+            cursor: pointer;
+            width: 100px;
+            margin-right: 5px;
+        }
+        .board_contents{
+            clear: both;
+        }
+        .board_contents > ul:first-child{
+            border-top: 1px solid #999;
+        }
+
+        .board_contents > ul > li{
+            line-height: 50px;
+            font-size: 18px;
+            border-bottom: 1px solid #999;
+        }
+        .info > .content > .board_area > .board_title.on{
+            background-color: #2d2b28;
+            color: red;
+        }
+        #board_data{display: none;}
+        .board_contents > ul > li > span{
+            float: right;
+        }
+    </style>
+
+    <script>
+        $(function(){
+
+            $('.depth2').hide();
+            
+            $('.depth1 > li').on('mouseover',function(){
+                $(this).find('.depth2').stop().slideDown();
+            }).on('mouseleave',function(){
+                $(this).find('.depth2').stop().slideUp();
+            })
+
+            // $('.section > img').mouseover(function(){
+            //     $(this).css('margin','-4px');
+            //     $(this).css('border','3px solid #999');
+            // }).mouseout(function(){
+            //     $(this).css('border','');
+            // })
+
+
+
+            var swiper = new Swiper('.swiper-visual',{
+
+                autoplay:{
+                    delay:2000
+                },
+                loop:true
+            });
+
+            //이벤트 중첩을 막으려면 중간에 stop를 넣어주면됨!!
+
+            $("#popup").css({
+                top:(($(window).height()-$("#popup").outerHeight())/2 + $(window).scrollTop())+'px',
+                left:(($(window).width()-$("#popup").outerWidth())/2 + $(window).scrollLeft())+'px'
+            })
+
+            $("#popup").draggable();
+            
+            //퀵메뉴
+            var q_left = $(".menu>ul:first-child").position().left + 1200;
+            var q_top = $(".menu>ul:first-child").position().top;
+            $('#quickMenu').css({
+                left:q_left,
+                top:q_top
+            })
+           
+            //퀵메뉴 따라가게하기 
+            $(window).scroll(function(){
+                var scrollTop = $(window).scrollTop();
+                var q_top_new = scrollTop + q_top;
+                // $("#quickMenu").css('top',q_top_new);
+                $("#quickMenu").stop().animate({
+                    top:q_top_new
+                },500);
+            })
+
+            $("#quickMenu > img[src='img/quick_05.jpg']").on('click',function(){
+                alert(1);
+            })
+            
+            $('#goTop').click(function(){
+                $('html').animate({scrollTop:0},300);
+            })
+
+            
+           
+        })
+    </script>
+</head>
+<body>
+    <div id="popup">
+        <img src="img/event_popup.png" alt="">
+    </div>
+    <div class="wrap">
+        <div class="header">
+           <div class="size">
+                    <div><img src="img/logo.png"></div>
+                    <div class="login">
+                        <a href="">로그인</a>
+                        <a href="">회원가입</a>
+                    </div>
+           </div>
+        </div>
+        <div class="menu">
+            <ul class="depth1"> <!--li태그들은 height에 포함x-->
+                <li>
+                    <a href="">MENU1</a> 
+                      <ul class="depth2">
+                        <li><a href="">MENU1.1</a> </li>
+                        <li><a href="">MENU1.2</a> </li>
+                        <li><a href="">MENU1.3</a> </li>
+                      </ul>  
+                </li>
+                <li>
+                    <a href="">MENU2</a> 
+                      <ul class="depth2">
+                        <li><a href="">MENU2.1</a> </li>
+                        <li><a href="">MENU2.2</a> </li>
+                        <li><a href="">MENU2.3</a> </li>
+                      </ul>  
+                </li>
+                <li>
+                    <a href="">MENU3</a> 
+                      <ul class="depth2">
+                        <li><a href="">MENU3.1</a> </li>
+                        <li><a href="">MENU3.2</a> </li>
+                        <li><a href="">MENU3.3</a> </li>
+                      </ul>  
+                </li>
+                <li>
+                    <a href="">MENU4</a> 
+                      <ul class="depth2">
+                        <li><a href="">MENU4.1</a> </li>
+                        <li><a href="">MENU4.2</a> </li>
+                        <li><a href="">MENU4.3</a> </li>
+                      </ul>  
+                </li>
+                <li>
+                    <a href="">MENU5</a> 
+                      <ul class="depth2">
+                        <li><a href="">MENU5.1</a> </li>
+                        <li><a href="">MENU5.2</a> </li>
+                        <li><a href="">MENU5.3</a> </li>
+                      </ul>  
+                </li>
+            </ul>
+        </div>
+        <div class="visual">
+            <div class="swiper swiper-visual">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image: url('img/visual1.png');"></div>
+                    <div class="swiper-slide" style="background-image: url('img/visual2.png');"></div>
+                    <div class="swiper-slide" style="background-image: url('img/visual3.png');"></div>
+                    <div class="swiper-slide" style="background-image: url('img/visual4.png');"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="size">
+                    <div class="section"> <!--간접적으로 크기변경을 위해 주로 감싼다-->
+                        <img src="img/section1_1.png" alt="">
+                    </div>
+                    <div class="section"> <!--간접적으로 크기변경을 위해 주로 감싼다-->
+                        <img src="img/section1_2.png" alt="">
+                    </div>
+                    <div class="section"> <!--간접적으로 크기변경을 위해 주로 감싼다-->
+                        <img src="img/section1_3.png" alt="">
+                    </div>
+                    <div class="section"> <!--간접적으로 크기변경을 위해 주로 감싼다-->
+                        <img src="img/section1_4.png" alt="">
+                    </div>
+                    <div class="section"> <!--간접적으로 크기변경을 위해 주로 감싼다-->
+                        <img src="img/section1_5.png" alt="">
+                    </div>
+                    <div class="section"> <!--간접적으로 크기변경을 위해 주로 감싼다-->
+                        <img src="img/section1_6.png" alt="">
+                    </div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="content">
+                    <div class="board_area">
+                        <div class="board_title on">공지사항</div>
+                        <div class="board_title">자료실</div>
+                        <div class="board_contents" id="board_notice">
+                                <ul>
+                                    <li>공지사항입니다. <span>2023-10-18</span></li> <!--span 날짜에만 특별한 효과 주려고-->
+                                    <li>공지사항입니다. <span>2023-10-18</span></li> <!--span 날짜에만 특별한 효과 주려고-->
+                                    <li>공지사항입니다. <span>2023-10-18</span></li> <!--span 날짜에만 특별한 효과 주려고-->
+                                    <li>공지사항입니다. <span>2023-10-18</span></li> <!--span 날짜에만 특별한 효과 주려고-->
+                                    <li>공지사항입니다. <span>2023-10-18</span></li> <!--span 날짜에만 특별한 효과 주려고-->
+                                    <li>공지사항입니다. <span>2023-10-18</span></li> <!--span 날짜에만 특별한 효과 주려고-->
+
+                                </ul>
+                        </div>
+                        <div class="board_contents" id="board_data">
+                            <ul>
+                                <li>자료실입니다. <span>2023-10-18</span></li> <!--span 날짜에만 특별한 효과 주려고-->
+                                <li>자료실입니다. <span>2023-10-18</span></li> <!--span 날짜에만 특별한 효과 주려고-->
+                                <li>자료실입니다. <span>2023-10-18</span></li> <!--span 날짜에만 특별한 효과 주려고-->
+                                <li>자료실입니다. <span>2023-10-18</span></li> <!--span 날짜에만 특별한 효과 주려고-->
+                                <li>자료실입니다. <span>2023-10-18</span></li> <!--span 날짜에만 특별한 효과 주려고-->
+                                <li>자료실입니다. <span>2023-10-18</span></li> <!--span 날짜에만 특별한 효과 주려고-->
+
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+            <div class="content">
+                <div class="video_container">
+                    <iframe width="100%" height="300" src="https://www.youtube.com/embed/DK1sMEOVKvE" title="폐급 개발자😥😭 나이만먹네요" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="size">
+                   <div class="info">
+                    <p>신한DS 금융 SW아카데미</p>
+                    <p>서울시 마포구 월드컵북로 4길 77</p>
+                    <p>02-380-3333 | 02-380-4444</p>
+                    <p>대표자 서민구 | 개인정보책임자 홍길동</p>
+                    <p>사업자 등록번호 111-02-1234</p>
+                   </div> 
+                   <div class="sns_area">
+                    <a href="" target="_blank"><img src="img/blog_ico.png" alt=""></a>
+                    <a href="" target="_blank"><img src="img/facebook_ico.png" alt=""></a>
+                    <a href="" target="_blank"><img src="img/insta_ico.png" alt=""></a>
+                   </div>
+            </div>
+        </div>
+        <div id="quickMenu">
+            <div><img src="img/quick_01.jpg" alt=""></div>
+            <div><img src="img/quick_02.jpg" alt=""></div>
+            <div><img src="img/quick_03.jpg" alt=""></div>
+            <div><img src="img/quick_04.jpg" alt=""></div>
+            <div><img  id="goTop" src="img/quick_05.jpg" alt=""></div>
+        </div>
+    </div>
+</body>
+</html>

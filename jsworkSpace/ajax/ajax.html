@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(function(){
+
+            $("#btn").click(function(){
+                $.ajax({
+
+                    url:'target.html', //근데 응답한다고도 안했는데 어쨰서..
+                    dataType:'HTML', //타입으로 응답값을 추정한건가??
+                    success:function(data){
+                        $('#area').html(data);
+                    }
+                })
+            })
+
+        })
+
+    </script>
+
+</head>
+<body>
+    <input type="button" id="btn" value="ajax">
+    <div id="area"></div>
+</body>
+</html>

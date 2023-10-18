@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+
+            $('.g').on('keyup',function(){
+               let vals=0;
+
+            $.each($('.g'),function(i,e){
+                vals += Number(e.value);
+                
+            });
+                
+                 $('#sum').val(vals);
+                 $('#avg').val(vals/3);
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>국어</th>
+            <td><input type="text" class="g"></td>
+        </tr>
+        <tr>
+            <th>영어</th>
+            <td><input type="text" class="g"></td>
+        </tr>
+        <tr>
+            <th>수학</th>
+            <td><input type="text" class="g"></td>
+        </tr>
+
+        <tr>
+            <th>합계</th>
+            <td><input type="text" id="sum">0</td>
+        </tr>
+        <tr>
+            <th>평균</th>
+            <td><input type="text" id="avg">0</td>
+        </tr>
+    </table>
+</body>
+</html>

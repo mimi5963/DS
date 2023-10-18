@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(function(){
+
+            $("#btn").click(function(){
+                $.ajax({
+
+                    url:'board.json', 
+                    method:'get',
+                    data:{'name':'홍길동'}, //파라미터 get이면 쿼리스트링
+                    cache:false, //캐시
+                    dataType:'JSON', //응답받은 데이터 타입 
+                    success:function(data){ //콜백
+                        $.each(data,function(idx,e){ //JSON파싱된채로 받누 (javascript객체됨)
+                            $('#area').append("<tr><td>"+e.no+"</td><td>"+e.title+"</td><td>"+e.name+"</td><td>"+e.date+"</td></tr>");
+                        })
+                    },
+                    error:function(e){
+                        //에러발생시 
+                    }
+                })
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="ajax">
+    <table id="area">
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+        </tr>
+    </table>
+</body>
+</html>

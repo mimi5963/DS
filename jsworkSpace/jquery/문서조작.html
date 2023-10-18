@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+
+        window.onload=function(){
+            console.log($('h1')); //jquery 선택자 $ > jquery는 라이브러리
+            $('.greet').css('color','red'); //DOM을 쫌 편하게 쓸 수 있게 해주는 듯?
+                                                //배열일때 for문 처리할 필요없음! 내부에서 처리 
+            
+            //배열 처리 
+            var arr =[1,2,3,4,5];
+            $.each($('.menu > li'),function(index, e){ //인덱스와 e는 요소 하나하나 
+                console.log(index,e);
+            })
+            
+            $('.menu > li').each((idx,e) => {
+                console.log(idx,e,e.innerHTML);
+            })
+
+        };
+
+
+
+    </script>
+    
+    <style>
+        
+    </style>
+
+    <script>
+
+        $(document).ready(function(){
+                //$('h1').addClass('redColor'); //load된 후 조작 [태그에 클래스명 추가]
+                $('h1').removeClass('redColor'); //redColor제거 -> 여러 클래스명 중첩이어도 하나만 쏙 빼줌
+                document.querySelector('h1').onclick = () =>{
+                    $('h1').toggleClass('redColor'); //끄고 키기 -> 이벤트랑 같이 사용
+                }
+                $('#img').attr('src') 
+            //속성명과 값을 넣으면 만들어줌
+            //$('#img').attr(객체) -> 한꺼번에 바꿀 수 있음 (객체안에 key값으로)
+            $('#img').attr({width:100,height:100}); //객체 매개변수 
+    
+        //속성 삭제 
+        $('#img').removeAttr('width');     
+        //사용자 속성
+        $("#img").data('no'); //사용자 정의 속성 선택
+        
+        //스타일 확인 
+        console.log($('h1').css('color')); //css에서 매개변수 1개면 가져오기, 2개면 바꾸기
+        $('h1').css('color','blue');   
+        
+        //스타일변경
+        $('h1').css({
+            color:'yellow',
+            'font-weight':100
+        });
+
+        //스타일 삭제
+        $('h1').css('color','');
+
+        //객체 내용 확인 
+        $('h1').html(); //innerHTML
+        $('h1').text(); //innerTEXT
+        //DOM 객체 내용을 삽입 
+        $('h1').html('반가워요');
+
+        //객체 제거[태그제거]
+        //$('h1').remove(); 
+        
+        //객체 비우기 
+        //$('h1').empty();
+        
+        //객체 삽입 태그 안에 앞뒤로 추가되는거임
+        $('<div>반갑습니다1.</div>').appendTo('h1'); //뒤에 추가 
+        $('<div>반갑습니다2.</div>').prepend('h1'); //뒤에 추가 
+        $('<div>반갑습니다3.</div>').insertAfter('h1'); //지정태그 끝나고 뒤에
+        $('<div>반갑습니다4.</div>').insertBefore('h1');
+        
+        //뒤에추가
+        $('h1').after('<div>반갑습니다.<div>');
+        $('h1').append('<div>반갑습니다4.</div>'); 
+
+        //객체이동 
+        $('h1').insertAfter('#img');
+
+        //복사이동
+        $('h1').clone().insertAfter('#img');
+    
+    });
+       
+    </script>
+</head>
+<body>
+    <h1 class="redColor">안녕하세요</h1>
+    <img src="/img/고냥이.jpg" alt="고양이" id="img" data-no="10">
+
+</body>
+</html>
